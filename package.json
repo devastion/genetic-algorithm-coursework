@@ -17,13 +17,17 @@
   "type": "module",
   "browser": "dist/index.global.js",
   "scripts": {
-    "build": "tsup src/index.ts --format iife",
+    "build": "tsup src/index.ts --format iife,esm",
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
-    "@faker-js/faker": "^8.4.1"
+    "@faker-js/faker": "^8.4.1",
+    "@inquirer/confirm": "^3.1.1",
+    "picocolors": "^1.0.0",
+    "table": "^6.8.2"
   },
   "devDependencies": {
+    "@types/node": "^20.12.4",
     "tsup": "^8.0.2",
     "tsx": "^4.7.2",
     "typescript": "^5.4.4"

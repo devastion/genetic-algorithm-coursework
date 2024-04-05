@@ -7,6 +7,8 @@ export const useVillageStatistics = (village: Village) => {
     statistics[family.name] = {
       males: [],
       females: [],
+      totalMales: 0,
+      totalFemales: 0,
     };
     const familyMales = family.members.males;
     const familyFemales = family.members.females;
