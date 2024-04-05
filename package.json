@@ -1,0 +1,16 @@
+{
+  "name": "genetic-algorithm-coursework",
+  "private": true,
+  "license": "MIT",
+  "author": "Dimitar Banev",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.4"
+  }
+}
