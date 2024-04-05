@@ -1,47 +1,43 @@
-import { faker } from "@faker-js/faker";
-import { Villager } from "./Villager";
+import { Member } from "./Member";
 import { useGenes } from "../helpers/useGenes";
+import { FAMILY_SIZE } from "../constants";
+
+type FamilyMembers = {
+  males: Member[];
+  females: Member[];
+};
 
 export class Family {
-  private _familyName = faker.person.lastName();
-  private _familyMembers = new Array<Villager>(3);
+  #name: string;
+  #members: FamilyMembers = { males: [], females: [] };
 
-  getFamilyName() {
-    return this._familyName;
+  constructor(name: string) {
+    this.#name = name;
+    this.#init();
   }
 
-  getFamilyMembers() {
-    return this._familyMembers;
+  get name() {
+    return this.#name;
   }
 
-  addFamilyMember(villager: Villager) {
-    this._familyMembers.push(villager);
-    console.log(`Added member ${villager}`);
-
-    this._familyMembers.sort((a, b) => b.getFitness() - a.getFitness());
+  get members() {
+    return this.#members;
   }
-
-  removeFamilyMember(villager: Villager) {
-    for (let i = 0; i < this._familyMembers.length; i++) {
-      const member = this._familyMembers[i];
-      if (member.getId() === villager.getId()) {
-        this._familyMembers.splice(i, 1);
-      }
-    }
-    this._familyMembers.sort((a, b) => b.getFitness() - a.getFitness());
-  }
-
-  private init = (() => {
-    for (let i = 0; i < this._familyMembers.length; i++) {
-      this._familyMembers[i] = new Villager(
-        i,
-        useGenes(),
-        "God",
-        "God",
-        this._familyName
-      );
+  set member(member: Member) {
+    if (member.gender === "male") {
+      this.members["males"].push(member);
     }
 
-    this._familyMembers.sort((a, b) => b.getFitness() - a.getFitness());
-  })();
+    if (member.gender === "female") {
+      this.members["females"].push(member);
+    }
+  }
+
+  #init = () => {
+    for (let i = 0; i < FAMILY_SIZE; i++) {
+      const member = new Member(useGenes(10), ["God", "God"], this.name);
+
+      this.member = member;
+    }
+  };
 }

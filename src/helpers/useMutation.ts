@@ -1,9 +1,10 @@
-export const useMutation = (genesArr: number[][]) => {
-  for (const genes of genesArr) {
-    const prob = Math.floor(Math.random() * 100 + 1);
-    if (prob <= 10) {
-      const idx = Math.floor(Math.random() * genes.length);
-      genes[idx] = Math.abs(genes[idx] - 1);
-    }
+export const useMutation = (genes: number[]) => {
+  const genesCopy = [...genes];
+  const prob = Math.floor(Math.random() * 100 + 1);
+  if (prob <= 10) {
+    const idx = Math.floor(Math.random() * genesCopy.length);
+    genesCopy[idx] = Math.abs(genesCopy[idx] - 1);
   }
+
+  return genesCopy;
 };

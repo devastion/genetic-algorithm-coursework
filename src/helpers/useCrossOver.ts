@@ -1,14 +1,12 @@
-import type { Villager } from "../entities/Villager";
+import type { Member } from "../entities/Member";
 
-export const useCrossOver = (p1: Villager, p2: Villager) => {
-  const g1 = p1.getGenes();
-  const g2 = p2.getGenes();
+export const useCrossOver = (m: Member, f: Member) => {
   const rand = Math.floor(
-    (Math.random() * g1.length) / 2 + (Math.random() * g2.length) / 2
+    (Math.random() * m.genes.length) / 2 + (Math.random() * f.genes.length) / 2
   );
 
-  const genes1 = [...g1.slice(0, rand), ...g2.slice(rand)];
-  const genes2 = [...g2.slice(0, rand), ...g1.slice(rand)];
+  const motherGenes = [...m.genes.slice(0, rand), ...f.genes.slice(rand)];
+  const fatherGenes = [...f.genes.slice(0, rand), ...m.genes.slice(rand)];
 
-  return { genes1, genes2 };
+  return { motherGenes, fatherGenes };
 };

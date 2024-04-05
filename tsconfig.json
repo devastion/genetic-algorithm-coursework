@@ -20,8 +20,6 @@
     "declarationMap": true,
     "sourceMap": true,
     "removeComments": true,
-    /* LINTING */
-    "strict": true,
     /* OTHER */
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

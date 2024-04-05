@@ -1,12 +1,10 @@
 import { Village } from "./entities/Village";
-import { useCounter } from "./helpers/useCounter";
+import { Member } from "./entities/Member";
+import { useGenes } from "./helpers/useGenes";
+import { useVillageStatistics } from "./helpers/useVillageStatistics";
 
 const village = new Village();
+console.info(useVillageStatistics(village));
 
-console.log("1: ", useCounter(village));
 village.produceOffspring();
-console.log("2: ", useCounter(village));
-village.produceOffspring();
-console.log("3: ", useCounter(village));
-village.produceOffspring();
-console.log("4: ", useCounter(village));
+console.log(useVillageStatistics(village));
