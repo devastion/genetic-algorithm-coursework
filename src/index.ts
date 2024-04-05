@@ -13,7 +13,20 @@ import { log } from "console";
 
 const village = new Village();
 
-const data = [
+const dataTemplate = [
+  [
+    "FAMILY",
+    "MALES",
+    "FEMALES",
+    "TOTAL MALES",
+    "TOTAL FEMALES",
+    "MALE AVERAGE FITNESS",
+    "FEMALE AVERAGE FITNESS",
+    "AVERAGE FITNESS",
+  ],
+];
+
+let data = [
   [
     "FAMILY",
     "MALES",
@@ -49,11 +62,22 @@ for (let i = 1; i < 6; i++) {
 }
 
 const config = {
-  columns: [{}, {}, {}, {}, {}, {}, {}, {}],
+  columns: [
+    { truncate: 30 },
+    { truncate: 30 },
+    { truncate: 30 },
+    { truncate: 30 },
+    { truncate: 30 },
+    { truncate: 30 },
+    { truncate: 30 },
+    { truncate: 30 },
+  ],
 };
 
 function* generate() {
   for (const [idx, vals] of Object.entries(presentData)) {
+    data = [...dataTemplate];
+
     for (const key of Object.keys(vals["families"])) {
       const innerTable = [];
       innerTable.push(key);
@@ -65,18 +89,27 @@ function* generate() {
 
       data.push(innerTable);
     }
-    console.log(pc.bold(pc.green(` PAGE ${idx} `)));
+
+    console.log(pc.bold(pc.green(` GENERATION ${idx} `)));
+    console.log(
+      pc.bold(
+        pc.green(
+          ` --- TOTAL MALES ${vals["totalGenders"]["totalMales"]} --- TOTAL FEMALES ${vals["totalGenders"]["totalFemales"]} ---`
+        )
+      )
+    );
     yield console.log(table(data, config));
   }
 }
 
-const gen = generate();
-
 (async () => {
-  while (!gen.next().done) {
+  const gen = generate();
+  for (let i = 0; i < 6; i++) {
     const answer = await confirm({ message: "Next?", default: true });
     if (answer) {
       gen.next().value;
+    } else {
+      continue;
     }
   }
 })();
