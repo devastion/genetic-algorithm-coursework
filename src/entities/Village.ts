@@ -39,10 +39,11 @@ export class Village {
     males.sort((a, b) => b.fitness - a.fitness);
     females.sort((a, b) => b.fitness - a.fitness);
 
-    while (females.length) {
+    while (females.length > 0) {
       const male = males[0];
 
       const selection = useSelection(male, females);
+
       if (!selection) break;
 
       const { female, femaleIdx, fertilityChance } = selection;

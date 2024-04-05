@@ -47,3 +47,22 @@ export const useVillageStatistics = (village: Village) => {
 
   return statistics;
 };
+
+export const useTotalGenderCalc = (statistics: { [key: string]: any }) => {
+  let totalMales = 0;
+  let totalFemales = 0;
+  for (const [key, val] of Object.entries(statistics)) {
+    totalMales += val.totalMales || 0;
+    totalFemales += val.totalFemales || 0;
+  }
+
+  return { totalMales, totalFemales };
+};
+
+export const useTotalGenderCalculation = (statistics: {
+  [key: string]: any;
+}) => {
+  const { totalMales, totalFemales } = useTotalGenderCalc(statistics);
+
+  return `--- TOTAL MALES: ${totalMales}  --- TOTAL FEMALES: ${totalFemales} ---`;
+};

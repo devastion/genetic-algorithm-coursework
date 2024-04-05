@@ -14,7 +14,8 @@ export function useSelection(
       continue;
     else {
       const fertilityChance =
-        Math.floor(Math.random() * 10) > (male.fitness + female.fitness) / 2;
+        Math.floor(Math.random() * 10) <
+        Math.floor((male.fitness + female.fitness) / 2);
 
       return { female, femaleIdx, fertilityChance };
     }

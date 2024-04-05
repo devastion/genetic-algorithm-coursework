@@ -1,15 +1,32 @@
 {
   "name": "genetic-algorithm-coursework",
   "private": true,
+  "homepage": "https://github.com/devastion/genetic-algorithm-coursework#readme",
+  "bugs": {
+    "url": "https://github.com/devastion/genetic-algorithm-coursework/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devastion/genetic-algorithm-coursework.git"
+  },
   "license": "MIT",
-  "author": "Dimitar Banev",
+  "author": {
+    "name": "Dimitar Banev",
+    "email": "banev_dimitar@mail.com"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "browser": "dist/index.global.js",
   "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs,iife",
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1"
   },
   "devDependencies": {
+    "tsup": "^8.0.2",
     "tsx": "^4.7.2",
     "typescript": "^5.4.4"
   }
