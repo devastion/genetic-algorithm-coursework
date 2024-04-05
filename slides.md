@@ -156,7 +156,7 @@ transition: fade-out
 
 Иницийлизиращи данни
 
-![Generation 0](assets/gen0.png)
+![Generation 0](/assets/gen0.png)
 
 ---
 transition: fade-out
@@ -164,7 +164,7 @@ transition: fade-out
 
 # Демо 1
 
-![Generation 1](assets/gen1.png)
+![Generation 1](/assets/gen1.png)
 
 ---
 transition: fade-out
@@ -172,7 +172,7 @@ transition: fade-out
 
 # Демо 2
 
-![Generation 2](assets/gen2.png)
+![Generation 2](/assets/gen2.png)
 
 ---
 transition: fade-out
@@ -180,7 +180,7 @@ transition: fade-out
 
 # Демо 3
 
-![Generation 3](assets/gen3.png)
+![Generation 3](/assets/gen3.png)
 
 ---
 transition: fade-out
@@ -188,7 +188,7 @@ transition: fade-out
 
 # Демо 4
 
-![Generation 4](assets/gen4.png)
+![Generation 4](/assets/gen4.png)
 
 ---
 transition: fade-out
@@ -196,7 +196,7 @@ transition: fade-out
 
 # Демо 5
 
-![Generation 5](assets/gen5.png)
+![Generation 5](/assets/gen5.png)
 
 ---
 transition: fade-out
