@@ -29,6 +29,12 @@ export class Village {
     const females: Exclude<Member, { gender: "male" }>[] = [];
 
     for (const [key, family] of Object.entries(this.families)) {
+      if (!family.members.males.length && !family.members.females.length) {
+        console.log(`${family.name} is GONE...`);
+
+        delete this.families[family.name];
+      }
+
       males.push(...family.members.males);
       family.members.males = [];
       females.push(...family.members.females);

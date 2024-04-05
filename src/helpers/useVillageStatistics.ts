@@ -42,7 +42,7 @@ export const useVillageStatistics = (village: Village) => {
     statistics[family.name]["maleAverageFitness"] = maleAverageFitness;
     statistics[family.name]["femaleAverageFitness"] = femaleAverageFitness;
     statistics[family.name]["averageFitness"] =
-      (maleAverageFitness + femaleAverageFitness) / 2;
+      ((maleAverageFitness || 0) + (femaleAverageFitness || 0)) / 2;
   }
 
   return statistics;
@@ -64,5 +64,7 @@ export const useTotalGenderCalculation = (statistics: {
 }) => {
   const { totalMales, totalFemales } = useTotalGenderCalc(statistics);
 
-  return `--- TOTAL MALES: ${totalMales}  --- TOTAL FEMALES: ${totalFemales} ---`;
+  return `--- TOTAL MALES: ${totalMales}  --- TOTAL FEMALES: ${totalFemales} --- FAMILIES REMAINING: ${
+    Object.keys(statistics).length
+  }`;
 };

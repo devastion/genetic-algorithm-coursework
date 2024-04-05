@@ -43,4 +43,6 @@ for (let i = 1; i < 6; i++) {
   );
 }
 
-console.log("PRESENT DATA: ", presentData);
+console.log("PRESENT DATA: ", JSON.stringify(presentData, null, " "));
+
+sessionStorage.setItem("data", JSON.stringify(presentData));
