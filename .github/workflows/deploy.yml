@@ -7,7 +7,7 @@ on:
       - presentation
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     permissions:
