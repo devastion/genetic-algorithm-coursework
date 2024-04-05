@@ -15,11 +15,9 @@
     "email": "banev_dimitar@mail.com"
   },
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
   "browser": "dist/index.global.js",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs,iife",
+    "build": "tsup src/index.ts --format iife",
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
