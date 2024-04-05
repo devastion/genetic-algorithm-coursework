@@ -3,4 +3,7 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-action.json": "file:///Users/banev/Documents/NBU/MITM301/genetic-algorithm-coursework/.github/workflow/deploy.yml"
+  },
 }
